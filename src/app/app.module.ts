@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 // tslint:disable-next-line:max-line-length
-import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule, MdSnackBarModule, MdTableModule } from '@angular/material';
+import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule, MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
@@ -14,6 +14,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { TodoService } from './services/todo.service';
 import { TodoComponent } from './components/todo/todo.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
 
 // Images
 import '../assets/images/menu.svg';
@@ -22,19 +23,21 @@ import '../assets/images/info.svg';
 
 const appRoutes: Routes = [
     { path: '', component: TodoComponent },
-    { path: '**', component: TodoComponent },
+    { path: '**', component: TodoComponent }
 ];
 
 @NgModule({
     declarations: [
         AppComponent,
-        TodoComponent
+        TodoComponent,
+        AddTodoComponent
     ],
     imports: [BrowserModule, BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes), HttpClientModule, FormsModule,
         MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule,
-        MdSnackBarModule, MdTableModule, FlexLayoutModule],
+        MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, FlexLayoutModule],
     providers: [TodoService],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [AddTodoComponent]
 })
 export class AppModule { }

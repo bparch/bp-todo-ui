@@ -1,0 +1,19 @@
+<div fxLayout='column'>
+    <md-card fxFlex="grow">
+        <md-card-title>Add TODO</md-card-title>
+        <md-card-subtitle fxLayoutAlign="center center">
+            <img class="menuIcon" src="../assets/images/info.svg" /> Add a Title and Description to create a TODO
+        </md-card-subtitle>
+        <md-card-content fxLayout="column">
+            <md-input-container>
+                <input mdInput placeholder="Title" [(ngModel)]="title">
+            </md-input-container>
+            <md-input-container>
+                <input mdInput placeholder="Description" [(ngModel)]="description">
+            </md-input-container>
+        </md-card-content>
+        <md-card-actions fxLayoutAlign="end center">
+            <button md-raised-button color="primary" (click)="addTodo()">Add</button>
+        </md-card-actions>
+    </md-card>
+</div>

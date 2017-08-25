@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MdSnackBar } from '@angular/material';
+import { MdSnackBar, MdDialog } from '@angular/material';
 import { TodoService } from '../../services/todo.service';
+import { AddTodoComponent } from '../add-todo/add-todo.component';
 
 @Component({
     selector: 'app-todo',
@@ -11,14 +12,15 @@ export class TodoComponent implements OnInit {
     showSpinner: boolean;
     todoList: any;
 
-    constructor(private snackBar: MdSnackBar, private todoService: TodoService) {
+    constructor(private snackBar: MdSnackBar, public dialog: MdDialog,
+        private todoService: TodoService) {
         this.showSpinner = false;
     }
 
     ngOnInit() {
         const successMessage = '(SEND): API response received';
         const errorMessage = '(SEND): ';
-        this.todoService.getTodoService().subscribe(
+        this.todoService.getAllTodoService().subscribe(
             (result) => {
                 this.showSpinner = false;
                 this.todoList = result;
@@ -31,6 +33,10 @@ export class TodoComponent implements OnInit {
                 console.log(error);
             }
         );
+    }
+
+    addTodo() {
+        this.dialog.open(AddTodoComponent);
     }
 
 }

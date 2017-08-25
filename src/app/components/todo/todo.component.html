@@ -1,0 +1,18 @@
+<div>
+    <md-card>
+        <md-card-title>TODOS</md-card-title>
+        <md-card-subtitle fxLayoutAlign="start center">
+            <img class="menuIcon" src="../assets/images/info.svg" /> List of available TODOs
+        </md-card-subtitle>
+        <md-card-content>
+            <ul>
+                <li *ngFor="let todo of todoList">{{todo.title}}: {{todo.description}} by {{todo.userName}}</li>
+            </ul>
+        </md-card-content>
+        <!-- <md-card-actions fxLayoutAlign="end center">
+            <md-spinner mode="indeterminate" class="requestSpinner customSpinner" *ngIf="showSpinner"></md-spinner>
+            <button md-button color="primary" class="md-primary" (click)="clear()">Clear</button>
+            <button md-raised-button color="primary" class="md-raised md-primary" (click)="sendPayload()">Send</button>
+        </md-card-actions> -->
+    </md-card>
+</div>

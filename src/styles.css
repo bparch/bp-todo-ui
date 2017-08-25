@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.imageCursor {
+    cursor: pointer;
+}
+
+.menuIcon {
+    padding-right: 20px;
+}
+
+.menuItemSet {
+    padding: 10px;
+}
+
+.customSpinner {
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+.requestSpinner {
+    height: 20px !important;
+}
+
+.customPayload {
+    height: 400px;
+    width: 100%;
+}
+
+textarea {
+    resize: none;
+    background: #FFF;
+    border: 0px solid;
+    white-space: pre !important;
+    padding-top: 15px;
+}
+
+textarea:enabled {
+    border: 1px solid;
+    border-color: #2196F3;
+}
+
+md-card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}

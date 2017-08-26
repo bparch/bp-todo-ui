@@ -23,6 +23,7 @@ import '../assets/images/info.svg';
 
 const appRoutes: Routes = [
     { path: '', component: TodoComponent },
+    { path: 'addTodo', component: AddTodoComponent },
     { path: '**', component: TodoComponent }
 ];
 

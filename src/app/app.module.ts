@@ -20,6 +20,7 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import '../assets/images/menu.svg';
 import '../assets/images/home.svg';
 import '../assets/images/info.svg';
+import '../assets/images/add.svg';
 
 const appRoutes: Routes = [
     { path: '', component: TodoComponent },

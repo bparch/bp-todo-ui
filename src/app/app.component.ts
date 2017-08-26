@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     position = 'below';
-
-    navToHome() {
-        // TODO - reload component route
-        // TODO - close sidenav
-    }
 }

@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Todo } from '../interfaces/todo';
 
 @Injectable()
 export class TodoService {
+    headers: HttpHeaders;
     todoCoreUrl: string;
 
     constructor(public httpClient: HttpClient) {
+        this.headers = new HttpHeaders();
+        this.headers = this.headers.set('Content-Type', 'application/json');
+        /* this.headers = this.headers.append('Access-Control-Allow-Origin', '*');
+        this.headers = this.headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        this.headers = this.headers.append('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); */
         this.todoCoreUrl = 'http://localhost:8001/todos';
     }
 
@@ -20,7 +26,7 @@ export class TodoService {
     }
 
     addTodoService(todo: Todo) {
-        return this.httpClient.post(this.todoCoreUrl, todo, { responseType: 'json' });
+        return this.httpClient.post(this.todoCoreUrl, todo, { /* headers: this.headers */ });
     }
 
     updateTodoService(todo: Todo, todoId: string) {

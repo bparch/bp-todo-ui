@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 // tslint:disable-next-line:max-line-length
@@ -13,6 +13,7 @@ import 'hammerjs';
 // App Libraries
 import { AppComponent } from './app.component';
 import { TodoService } from './services/todo.service';
+import { TodoInterceptor } from './services/todo.interceptor';
 import { TodoComponent } from './components/todo/todo.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes), HttpClientModule, FormsModule,
         MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule,
         MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, FlexLayoutModule],
-    providers: [TodoService],
+    providers: [TodoService, { provide: HTTP_INTERCEPTORS, useClass: TodoInterceptor, multi: true, }],
     bootstrap: [AppComponent],
     entryComponents: [AddTodoComponent]
 })

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Todo } from '../interfaces/todo';
 
 @Injectable()
 export class TodoService {
@@ -18,11 +19,11 @@ export class TodoService {
         return this.httpClient.get(this.todoCoreUrl, {});
     }
 
-    addTodoService(todo: {}) {
-        return this.httpClient.post(this.todoCoreUrl, todo, {});
+    addTodoService(todo: Todo) {
+        return this.httpClient.post(this.todoCoreUrl, todo, { responseType: 'json' });
     }
 
-    updateTodoService(todo: {}, todoId: string) {
+    updateTodoService(todo: Todo, todoId: string) {
         this.todoCoreUrl = this.todoCoreUrl + '/' + todoId;
         return this.httpClient.put(this.todoCoreUrl, todo, {});
     }

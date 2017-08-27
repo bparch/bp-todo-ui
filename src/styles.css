@@ -5,6 +5,14 @@
     cursor: pointer;
 }
 
+.addButton {
+    right: 20px;;
+    bottom: 20px;
+    position: fixed !important;
+    z-index: 100;
+    margin: 0px 10px 0px 10px;
+}
+
 .menuIcon {
     padding-right: 20px;
 }
@@ -32,11 +40,7 @@ textarea {
     border: 0px solid;
     white-space: pre !important;
     padding-top: 15px;
-}
-
-textarea:enabled {
-    border: 1px solid;
-    border-color: #2196F3;
+    height: 50px;
 }
 
 md-card {

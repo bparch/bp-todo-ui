@@ -9,9 +9,12 @@
                 <textarea aria-label="TODO Description" value="{{todo.description}}" class="customPayload" disabled="todoDescriptionDisabled"></textarea>
             </md-card-content>
             <md-card-actions fxLayoutAlign="end center">
-                <button md-raised-button color="primary" (click)="editTodo(todo)">Edit</button>
+                <button md-raised-button color="primary" (click)="enableTodoforEdit(todo)">Edit</button>
                 <button md-raised-button color="primary" (click)="deleteTodo(todo._id)">Delete</button>
             </md-card-actions>
         </md-card>
     </div>
+    <button md-fab md-raised-button color="accent" class="addButton" aria-label="Add TODO" fxLayoutAlign="center center" mdTooltip="Add TODO" [mdTooltipPosition]="position">
+        <img width="100%" class="imageCursor menuIcon" src="../assets/images/add.svg" (click)="addTodo(todo)" />                  
+    </button>
 </div>

@@ -9,7 +9,7 @@
                     </button>
             </div>
             <div fxLayout="row" fxFlex="grow" class="menuItemSet">
-                <button md-fab md-raised-button color="accent" aria-label="Home" fxLayoutAlign="center center" mdTooltip="Add TODO" [mdTooltipPosition]="position">
+                <button md-fab md-raised-button color="accent" aria-label="Add TODO" fxLayoutAlign="center center" mdTooltip="Add TODO" [mdTooltipPosition]="position">
                         <img width="100%" class="imageCursor menuIcon" src="../assets/images/add.svg" routerLink="/addTodo" (click)="sidenav.close()" />                  
                     </button>
             </div>
@@ -22,5 +22,5 @@
     </md-toolbar>
 
     <router-outlet></router-outlet>
-
+    
 </md-sidenav-container>

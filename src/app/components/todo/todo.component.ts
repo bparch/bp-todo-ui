@@ -10,6 +10,7 @@ import { Todo } from '../../interfaces/todo';
     styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
+    position = 'above';
     showSpinner: boolean;
     todoList: any;
     todoDescriptionDisabled: boolean;
@@ -45,6 +46,11 @@ export class TodoComponent implements OnInit {
 
     addTodo() {
         this.dialog.open(AddTodoComponent);
+    }
+
+    enableTodoforEdit(todo: any) {
+        this.todoDescriptionDisabled = false;
+        // TODO - call this.editTodo(todo) on SAVE button click which needs implementation as well
     }
 
     editTodo(todo: any) {

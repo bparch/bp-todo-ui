@@ -24,6 +24,12 @@ export class AddTodoComponent implements OnInit {
     ngOnInit() {
     }
 
+    clear() {
+        this.showSpinner = false;
+        this.title = '';
+        this.description = '';
+    }
+
     addTodo() {
         this.todoRequest = {
             title: this.title,
@@ -37,6 +43,7 @@ export class AddTodoComponent implements OnInit {
                 this.showSpinner = false;
                 this.dialog.closeAll();
                 this.snackBar.open(successMessage, null, { duration: 5000, }); // TODO - Success Theme
+                this.clear();
             },
             (error) => {
                 this.showSpinner = false;

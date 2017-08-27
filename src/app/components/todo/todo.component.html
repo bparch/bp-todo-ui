@@ -9,7 +9,7 @@
                 <textarea aria-label="TODO Description" value="{{todo.description}}" class="customPayload" disabled="todoDescriptionDisabled"></textarea>
             </md-card-content>
             <md-card-actions fxLayoutAlign="end center">
-                <button md-raised-button color="primary" (click)="editTodo(todo._id)">Edit</button>
+                <button md-raised-button color="primary" (click)="editTodo(todo)">Edit</button>
                 <button md-raised-button color="primary" (click)="deleteTodo(todo._id)">Delete</button>
             </md-card-actions>
         </md-card>

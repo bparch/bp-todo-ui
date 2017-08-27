@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MdSnackBar, MdDialog } from '@angular/material';
 import { TodoService } from '../../services/todo.service';
 import { AddTodoComponent } from '../add-todo/add-todo.component';
+import { Todo } from '../../interfaces/todo';
 
 @Component({
     selector: 'app-todo',
@@ -12,6 +13,7 @@ export class TodoComponent implements OnInit {
     showSpinner: boolean;
     todoList: any;
     todoDescriptionDisabled: boolean;
+    todoRequest: Todo;
 
     constructor(private snackBar: MdSnackBar, public dialog: MdDialog,
         private todoService: TodoService) {
@@ -20,6 +22,10 @@ export class TodoComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getAllTodos();
+    }
+
+    getAllTodos() {
         const successMessage = '(SEND): API response received';
         const errorMessage = '(SEND): ';
         this.todoService.getAllTodoService().subscribe(
@@ -41,11 +47,41 @@ export class TodoComponent implements OnInit {
         this.dialog.open(AddTodoComponent);
     }
 
-    editTodo(todoId: string) {
-        // TODO - hook updateTodoService() API call here
+    editTodo(todo: any) {
+        this.todoRequest = {
+            title: todo.title,
+            description: todo.description,
+            userName: todo.userName
+        };
+
+        const successMessage = '(EDIT): TODO was successfully updated';
+        const errorMessage = '(EDIT): ';
+        this.todoService.updateTodoService(this.todoRequest, todo._id).subscribe(
+            (result) => {
+                this.showSpinner = false;
+                this.snackBar.open(successMessage, null, { duration: 5000, }); // TODO - Success Theme
+                location.reload();
+            },
+            (error) => {
+                this.showSpinner = false;
+                this.snackBar.open(errorMessage, null, { duration: 5000, }); // TODO - Error Theme
+            }
+        );
     }
 
     deleteTodo(todoId: string) {
-        // TODO - hook deleteTodoService() API call here
+        const successMessage = '(DELETE): TODO was successfully deleted';
+        const errorMessage = '(DELETE): ';
+        this.todoService.deleteTodoService(todoId).subscribe(
+            (result) => {
+                this.showSpinner = false;
+                this.snackBar.open(successMessage, null, { duration: 5000, }); // TODO - Success Theme
+                location.reload();
+            },
+            (error) => {
+                this.showSpinner = false;
+                this.snackBar.open(errorMessage, null, { duration: 5000, }); // TODO - Error Theme
+            }
+        );
     }
 }

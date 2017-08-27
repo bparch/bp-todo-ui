@@ -11,10 +11,12 @@ import { AddTodoComponent } from '../add-todo/add-todo.component';
 export class TodoComponent implements OnInit {
     showSpinner: boolean;
     todoList: any;
+    todoDescriptionDisabled: boolean;
 
     constructor(private snackBar: MdSnackBar, public dialog: MdDialog,
         private todoService: TodoService) {
         this.showSpinner = false;
+        this.todoDescriptionDisabled = true;
     }
 
     ngOnInit() {
@@ -39,4 +41,11 @@ export class TodoComponent implements OnInit {
         this.dialog.open(AddTodoComponent);
     }
 
+    editTodo(todoId: string) {
+        // TODO - hook updateTodoService() API call here
+    }
+
+    deleteTodo(todoId: string) {
+        // TODO - hook deleteTodoService() API call here
+    }
 }

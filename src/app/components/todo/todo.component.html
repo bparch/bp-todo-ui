@@ -3,7 +3,8 @@
         <md-card>
             <md-card-title>{{todo.title}}</md-card-title>
             <md-card-subtitle fxLayoutAlign="start center">
-                <img class="menuIcon" src="../assets/images/info.svg" /> By - {{todo.userName}}
+                <!-- <img class="menuIcon" src="../assets/images/info.svg" /> By - {{todo.userName}} -->
+                <md-icon class="imageCursor menuIcon">error_outline</md-icon> By - {{todo.userName}}
             </md-card-subtitle>
             <md-card-content>
                 <textarea aria-label="TODO Description" value="{{todo.description}}" class="customPayload" disabled="todoDescriptionDisabled"></textarea>
@@ -14,7 +15,9 @@
             </md-card-actions>
         </md-card>
     </div>
-    <button md-fab md-raised-button color="accent" class="addButton" aria-label="Add TODO" fxLayoutAlign="center center" mdTooltip="Add TODO" [mdTooltipPosition]="position">
-        <img width="100%" class="imageCursor menuIcon" src="../assets/images/add.svg" (click)="addTodo()" />                  
+    <button md-fab md-raised-button color="accent" class="addButton" aria-label="Add TODO" fxLayoutAlign="center center" mdTooltip="Add TODO"
+        [mdTooltipPosition]="position">
+        <!-- <img width="100%" class="imageCursor menuIcon" src="../assets/images/add.svg" (click)="addTodo()" /> -->
+        <md-icon class="imageCursor menuIcon" (click)="addTodo()">add_circle_outline</md-icon>        
     </button>
 </div>

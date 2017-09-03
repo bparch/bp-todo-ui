@@ -6,7 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 // tslint:disable-next-line:max-line-length
-import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule, MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule } from '@angular/material';
+import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule, MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, MdIconModule, MdIconRegistry  } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 
@@ -38,8 +38,8 @@ const appRoutes: Routes = [
     imports: [BrowserModule, BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes), HttpClientModule, FormsModule,
         MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule,
-        MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, FlexLayoutModule],
-    providers: [TodoService, { provide: HTTP_INTERCEPTORS, useClass: TodoInterceptor, multi: true, }],
+        MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, MdIconModule, FlexLayoutModule],
+    providers: [TodoService, { provide: HTTP_INTERCEPTORS, useClass: TodoInterceptor, multi: true, }, MdIconRegistry ],
     bootstrap: [AppComponent],
     entryComponents: [AddTodoComponent]
 })

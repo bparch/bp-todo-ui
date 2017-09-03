@@ -12,27 +12,12 @@ Follow these steps to install this app:
 -   Clone this repo from GIT
 -   cd to cloned directory
 -   npm install
--   You will also need to have MongoDB installed on your machine
-
-Follow these steps to install MongoDB on your machine:
--   Download and install MongoDB to this custom path - C:\mongodb
--   Set machines ENV VARIABLES for PATH = C:\mongodb\bin\
--   Reboot Machine for the ENV VARIABLES PATH to take effect
--   Create folders under C:\mongodb\
-	-   C:\mongodb\data
-	-   C:\mongodb\data\db
-	-   C:\mongodb\log
--   Using command prompt key in following commands
-	-   C:\mongodb\bin>mongod --directoryperdb -dbpath C:\mongodb\data\db --logpath C:\mongodb\log\mongo.log --logappend --rest --install
-	-   C:\mongodb\bin>net start MongoDB
-	-   C:\mongodb\bin>mongo
 
 
 ## Launch
 
 To launch the app key in this command 
 -	npm run start
--	In browser key in the URL as http://localhost:8001/todos
 
 
 ## License

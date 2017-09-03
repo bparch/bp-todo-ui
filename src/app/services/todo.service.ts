@@ -7,7 +7,8 @@ export class TodoService {
     todoCoreUrl: string;
 
     constructor(public httpClient: HttpClient) {
-        this.todoCoreUrl = 'http://localhost:8001/todos';
+        // this.todoCoreUrl = 'http://localhost:8001/todos';
+        this.todoCoreUrl = 'http://microservice-bp-todo-core.a3c1.starter-us-west-1.openshiftapps.com/todos';
     }
 
     getAllTodoService() {

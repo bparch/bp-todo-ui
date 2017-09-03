@@ -20,6 +20,16 @@ To launch the app key in this command
 -	npm run start
 
 
+## GitHub Publish
+
+To publish the latest build on github pages follow these steps:
+-   In .angular-cli.json file remove/uncomment "ejected": true
+-   npm i -g angular-cli-ghpages
+-   npm run gitpub
+-   ngh --repo=https://github.com/bparch/bp-todo-ui.git
+-   Now open <https://bparch.github.io/bp-todo-ui/> to see live latest changes
+
+
 ## License
 
 MIT License

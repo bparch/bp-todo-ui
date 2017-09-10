@@ -18,4 +18,8 @@ export class AppComponent {
             this.blockUI.stop(); // Stop blocking
         }, 2000);
     }
+
+    userAuthentication() {
+        // TODO - Launch User Authentication PopUp screen
+    }
 }

@@ -6,13 +6,11 @@
             <div fxLayout="column" class="mat-typography mat-display-1">
                 <div fxLayout="row" fxFlex="grow" class="menuItemSet">
                     <button md-fab md-raised-button color="accent" aria-label="Home" fxLayoutAlign="center center" mdTooltip="Home" [mdTooltipPosition]="position">
-                        <!-- <img width="100%" class="imageCursor menuIcon" src="../assets/images/home.svg" routerLink="/" (click)="sidenav.close()" /> -->
                         <md-icon routerLink="/" class="imageCursor menuIcon" (click)="sidenav.close()">home</md-icon>
                     </button>
                 </div>
                 <div fxLayout="row" fxFlex="grow" class="menuItemSet">
                     <button md-fab md-raised-button color="accent" aria-label="Add TODO" fxLayoutAlign="center center" mdTooltip="Add TODO" [mdTooltipPosition]="position">
-                        <!-- <img width="100%" class="imageCursor menuIcon" src="../assets/images/add.svg" routerLink="/addTodo" (click)="sidenav.close()" /> -->
                         <md-icon routerLink="/addTodo" class="imageCursor menuIcon" (click)="sidenav.close()">add_circle_outline</md-icon>               
                     </button>
                 </div>
@@ -20,8 +18,15 @@
         </md-sidenav>
 
         <md-toolbar color="primary">
-            <md-icon class="imageCursor menuIcon" (click)="sidenav.open()">menu</md-icon>
-            <span>BP TODO</span>
+            <div fxFlex="70%" fxLayoutAlign="start center">
+                <md-icon class="imageCursor menuIcon" (click)="sidenav.open()">menu</md-icon>
+                <span>BP TODO</span>
+            </div>
+            <div fxFlex="30%" fxLayoutAlign="center center">
+                <button md-mini-fab md-raised-button color="accent"> 
+                    <md-icon>person</md-icon>
+                </button>
+            </div>
         </md-toolbar>
 
         <router-outlet></router-outlet>

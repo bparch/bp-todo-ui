@@ -6,9 +6,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 // tslint:disable-next-line:max-line-length
-import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule, MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, MdIconModule, MdIconRegistry  } from '@angular/material';
+import { MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule, MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, MdIconModule, MdIconRegistry, MdMenuModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {BlockUIModule} from 'ng-block-ui';
+import { BlockUIModule } from 'ng-block-ui';
 import 'hammerjs';
 
 // App Libraries
@@ -39,8 +39,8 @@ const appRoutes: Routes = [
     imports: [BrowserModule, BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes), HttpClientModule, FormsModule,
         MdSidenavModule, MdToolbarModule, MdButtonModule, MdCardModule, MdProgressSpinnerModule, MdTooltipModule,
-        MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, MdIconModule, FlexLayoutModule,BlockUIModule],
-    providers: [TodoService, { provide: HTTP_INTERCEPTORS, useClass: TodoInterceptor, multi: true, }, MdIconRegistry ],
+        MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, MdIconModule, MdMenuModule, FlexLayoutModule, BlockUIModule],
+    providers: [TodoService, { provide: HTTP_INTERCEPTORS, useClass: TodoInterceptor, multi: true, }, MdIconRegistry],
     bootstrap: [AppComponent],
     entryComponents: [AddTodoComponent]
 })

@@ -1,7 +1,7 @@
 <div fxLayout="column">
 
     <div class="customHeaders" fxLayout="row">
-        <md-input-container fxFlex="grow" class="mat-display-2">
+        <md-input-container fxFlex="grow" class="mat-headline">
             <input mdInput placeholder="Search a TODO" [(ngModel)]="searchId">
         </md-input-container>
         <!-- <div fxLayoutAlign="center center">
@@ -12,7 +12,7 @@
 
 
     <div class="customHeaders">
-        <span class="mat-display-2 customAllTodoHeader">List of available TODO's</span>
+        <span class="mat-headline customAllTodoHeader">List of available TODO's</span>
     </div>
 
     <div *ngIf="allTodosReceived">

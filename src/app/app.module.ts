@@ -17,6 +17,7 @@ import { TodoService } from './services/todo.service';
 import { TodoInterceptor } from './services/todo.interceptor';
 import { TodoComponent } from './components/todo/todo.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { UserAuthenticationComponent } from './components/user-authentication/user-authentication.component';
 
 // Images
 import '../assets/images/menu.svg';
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent,
         TodoComponent,
-        AddTodoComponent
+        AddTodoComponent,
+        UserAuthenticationComponent
     ],
     imports: [BrowserModule, BrowserAnimationsModule,
         RouterModule.forRoot(appRoutes), HttpClientModule, FormsModule,
@@ -42,6 +44,6 @@ const appRoutes: Routes = [
         MdSnackBarModule, MdTableModule, MdDialogModule, MdInputModule, MdIconModule, MdMenuModule, FlexLayoutModule, BlockUIModule],
     providers: [TodoService, { provide: HTTP_INTERCEPTORS, useClass: TodoInterceptor, multi: true, }, MdIconRegistry],
     bootstrap: [AppComponent],
-    entryComponents: [AddTodoComponent]
+    entryComponents: [AddTodoComponent, UserAuthenticationComponent]
 })
 export class AppModule { }

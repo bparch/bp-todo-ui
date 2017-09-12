@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { MdDialog } from '@angular/material';
+import { UserAuthenticationComponent } from './components/user-authentication/user-authentication.component';
 
 @Component({
     selector: 'app-root',
@@ -11,7 +13,7 @@ export class AppComponent {
 
     @BlockUI() blockUI: NgBlockUI;
 
-    constructor() {
+    constructor(public dialog: MdDialog) {
         this.blockUI.start('Loading...'); // Start blocking
 
         setTimeout(() => {
@@ -21,5 +23,6 @@ export class AppComponent {
 
     userAuthentication() {
         // TODO - Launch User Authentication PopUp screen
+        this.dialog.open(UserAuthenticationComponent);
     }
 }

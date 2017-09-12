@@ -11,33 +11,47 @@ import { Todo } from '../../interfaces/todo';
 })
 export class TodoComponent implements OnInit {
     position = 'above';
+    searchId: string;
     showSpinner: boolean;
     todoList: any;
     todoDescriptionDisabled: boolean;
     todoRequest: Todo;
+    allTodosReceived: boolean;
 
     constructor(private snackBar: MdSnackBar, public dialog: MdDialog,
         private todoService: TodoService) {
+        this.searchId = '';
         this.showSpinner = false;
         this.todoDescriptionDisabled = true;
+        this.allTodosReceived = false;
     }
 
     ngOnInit() {
         this.getAllTodos();
     }
 
+    clear() {
+        this.searchId = '';
+    }
+
+    searchById() {
+        // TODO - Search by ID
+    }
+
     getAllTodos() {
-        const successMessage = '(SEND): API response received';
-        const errorMessage = '(SEND): ';
+        const successMessage = '(GET ALL TODOS): API response received';
+        const errorMessage = '(GET ALL TODOS): ';
         this.todoService.getAllTodoService().subscribe(
             (result) => {
                 this.showSpinner = false;
                 this.todoList = result;
+                this.allTodosReceived = true;
                 console.log(result);
                 this.snackBar.open(successMessage, null, { duration: 5000, }); // TODO - Success Theme
             },
             (error) => {
                 this.showSpinner = false;
+                this.allTodosReceived = false;
                 this.snackBar.open(errorMessage, null, { duration: 5000, }); // TODO - Error Theme
                 console.log(error);
             }

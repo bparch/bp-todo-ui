@@ -1,28 +1,50 @@
 <div fxLayout="column">
-    <div *ngFor="let todo of todoList">
-        <md-card>
-            <div fxLayout fxLayoutAlign="space-between">
-                <md-card-title>{{todo.title}}</md-card-title>
-                <button md-icon-button [mdMenuTriggerFor]="menu">
-                    <md-icon>more_vert</md-icon>
-                </button>
-            </div>
-            <md-menu #menu="mdMenu">
-                <button md-menu-item (click)="enableTodoforEdit(todo)">
-                    <md-icon>create</md-icon>
-                    <span>Edit</span>
-                </button>
-                <button md-menu-item (click)="deleteTodo(todo._id)">
-                    <md-icon>delete</md-icon>
-                    <span>Delete</span>
-                </button>
-            </md-menu>
-            <md-card-subtitle fxLayoutAlign="start center">
-                <md-icon class="imageCursor menuIcon">info_outline</md-icon> By - {{todo.userName}}
-            </md-card-subtitle>
-            <md-card-content>
-                <textarea aria-label="TODO Description" value="{{todo.description}}" class="customPayload" disabled="todoDescriptionDisabled"></textarea>
-            </md-card-content>
-        </md-card>
+
+    <div class="customHeaders" fxLayout="row">
+        <md-input-container fxFlex="grow" class="mat-display-2">
+            <input mdInput placeholder="Search a TODO" [(ngModel)]="searchId">
+        </md-input-container>
+        <!-- <div fxLayoutAlign="center center">
+            <i class="material-icons md-36 imageCursor" (click)="customHeaders()">search</i>
+            <i class="material-icons md-36 imageCursor" (click)="clear()">clear</i>
+        </div> -->
     </div>
+
+
+    <div class="customHeaders">
+        <span class="mat-display-2 customAllTodoHeader">List of available TODO's</span>
+    </div>
+
+    <div *ngIf="allTodosReceived">
+        <div *ngFor="let todo of todoList">
+            <md-card>
+                <div fxLayout fxLayoutAlign="space-between">
+                    <md-card-title>{{todo.title}}</md-card-title>
+                    <button md-icon-button [mdMenuTriggerFor]="menu">
+                                            <md-icon>more_vert</md-icon>
+                                        </button>
+                </div>
+                <md-menu #menu="mdMenu">
+                    <button md-menu-item (click)="enableTodoforEdit(todo)">
+                                            <md-icon>create</md-icon>
+                                            <span>Edit</span>
+                                        </button>
+                    <button md-menu-item (click)="deleteTodo(todo._id)">
+                                            <md-icon>delete</md-icon>
+                                            <span>Delete</span>
+                                        </button>
+                </md-menu>
+                <md-card-subtitle fxLayoutAlign="start center">
+                    <md-icon class="imageCursor menuIcon">info_outline</md-icon> By - {{todo.userName}}
+                </md-card-subtitle>
+                <md-card-content>
+                    <textarea aria-label="TODO Description" value="{{todo.description}}" class="customPayload" disabled="todoDescriptionDisabled"></textarea>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+    <div *ngIf="!allTodosReceived">
+        <span class="customHeaders">No data available to display!</span>
+    </div>
+
 </div>

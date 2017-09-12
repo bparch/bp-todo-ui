@@ -45,11 +45,25 @@ textarea {
 }
 
 md-card {
-    border: 2px solid #cfd8dc;
+    border: 1px solid #cfd8dc;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.mat-menu-content {
+    border: 1px solid #3f51b5;
+}
+
+.customHeaders{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.customAllTodoHeader {
+    color: #9b9fa0;
 }
 
 .material-icons.md-18 { font-size: 18px; }

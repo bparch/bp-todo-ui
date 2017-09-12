@@ -6,12 +6,14 @@
             <div fxLayout="column" class="mat-typography mat-display-1">
                 <div fxLayout="row" fxFlex="grow" class="menuItemSet">
                     <button md-fab md-raised-button color="accent" aria-label="Home" fxLayoutAlign="center center" mdTooltip="Home" [mdTooltipPosition]="position">
-                        <md-icon routerLink="/" class="imageCursor menuIcon" (click)="sidenav.close()">home</md-icon>
+                        <!-- <md-icon routerLink="/" class="imageCursor menuIcon" (click)="sidenav.close()">home</md-icon> -->
+                        <i class="material-icons md-36 imageCursor" routerLink="/" (click)="sidenav.close()">home</i>
                     </button>
                 </div>
                 <div fxLayout="row" fxFlex="grow" class="menuItemSet">
                     <button md-fab md-raised-button color="accent" aria-label="Add TODO" fxLayoutAlign="center center" mdTooltip="Add TODO" [mdTooltipPosition]="position">
-                        <md-icon routerLink="/addTodo" class="imageCursor menuIcon" (click)="sidenav.close()">add_circle_outline</md-icon>               
+                        <!-- <md-icon routerLink="/addTodo" class="imageCursor menuIcon" (click)="sidenav.close()">add_circle_outline</md-icon> -->
+                        <i class="material-icons md-36 imageCursor" routerLink="/addTodo" (click)="sidenav.close()">add_circle_outline</i>              
                     </button>
                 </div>
             </div>
@@ -23,8 +25,8 @@
                 <span>BP TODO</span>
             </div>
             <div fxFlex="30%" fxLayoutAlign="center center">
-                <button md-icon-button>
-                    <i class="material-icons md-48 imageCursor" (click)="userAuthentication()">account_circle</i>
+                <button md-icon-button mdTooltip="User Authentication" [mdTooltipPosition]="position">
+                    <i class="material-icons md-36 imageCursor" (click)="userAuthentication()">account_circle</i>
                 </button>
             </div>
         </md-toolbar>

@@ -3,6 +3,7 @@ import { MdSnackBar, MdDialog } from '@angular/material';
 import { TodoService } from '../../services/todo.service';
 import { AddTodoComponent } from '../add-todo/add-todo.component';
 import { Todo } from '../../interfaces/todo';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-todo',
@@ -42,7 +43,16 @@ export class TodoComponent implements OnInit {
         const successMessage = '(GET ALL TODOS): API response received';
         const errorMessage = '(GET ALL TODOS): ';
         this.todoService.getAllTodoService().subscribe(
-            (result) => {
+            //Use the ES6 array sort along with moment to order the todo tasks from latest to earliest
+            (result: Array<any>) => {
+                result.sort((a: any, b: any) => {
+                    if (moment(a.timeStamp).isAfter(b.timeStamp)) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+
+                })
                 this.showSpinner = false;
                 this.todoList = result;
                 this.allTodosReceived = true;

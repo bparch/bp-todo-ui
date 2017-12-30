@@ -458,7 +458,7 @@ module.exports = {
     },
     "devServer": {
         "historyApiFallback": true,
-        "host": "LLRich30032", // Your Machine Name
+        "host": "Sumeet", // Your Machine Name
         "open": true,
         "openPage": '',
         "port": 8080,
